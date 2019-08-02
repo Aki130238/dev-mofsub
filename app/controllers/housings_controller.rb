@@ -28,12 +28,17 @@ class HousingsController < ApplicationController
   end
 
   def edit
+    @housing = Housing.find(params[:id])
   end
 
   def update
+    @housing = Housing.find(params[:id])
   end
 
   def destroy
+    @housing = Housing.find(params[:id])
+    @housing.destroy
+    redirect_to housings_path, notice:"userを削除しました！"
   end
 
   private
