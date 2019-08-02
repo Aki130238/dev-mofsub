@@ -1,4 +1,5 @@
 class HousingsController < ApplicationController
+  before_action :set_housing, only: [:show, :edit, :update, :destroy]
 
   def index
     @housings = Housing.all
@@ -6,12 +7,13 @@ class HousingsController < ApplicationController
 
   def new
     @housing = Housing.new
-    2.times { @housing.near_stations.build }
+    @housing.near_stations.new #１件最寄駅追加用
+    #2.times { @housing.near_stations.build }
   end
 
   def create
     @housing = Housing.create(params_housing)
-    #3.times { @housing.articles.build }(params[:housing])
+    # 2.times { @housing.articles.build }(params[:housing])
     if params[:back]
       render 'new'
     else
@@ -24,24 +26,30 @@ class HousingsController < ApplicationController
   end
 
   def show
-    @housing = Housing.find(params[:id])
   end
 
   def edit
-    @housing = Housing.find(params[:id])
+    @housing.near_stations.new #１件最寄駅追加用
   end
 
   def update
-    @housing = Housing.find(params[:id])
+    if @housing.update(params_housing)
+      redirect_to housings_path, notice:"変更しました！"
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @housing = Housing.find(params[:id])
     @housing.destroy
-    redirect_to housings_path, notice:"userを削除しました！"
+    redirect_to housings_path, notice:"削除しました！"
   end
 
   private
+
+  def set_housing
+    @housing = Housing.find(params[:id])
+  end
 
   def params_housing
     params.require(:housing).permit(
