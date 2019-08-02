@@ -44,7 +44,8 @@ class HousingsController < ApplicationController
       :rent,
       :add,
       :year,
-      :remarks, near_stations_attributes:[
+      :remarks,
+      near_stations_attributes:[
         :line,
         :station,
         :walk])
