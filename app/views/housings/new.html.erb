@@ -1,0 +1,29 @@
+<h1>登録</h1>
+<h2>物件登録</h2>
+<table>
+  <%= form_for @housing do |f| %>
+    <tr><td><%= f.label :"物件名" %></td></tr>
+    <tr><td><%= f.text_field :build %></td></tr>
+    <tr><td><%= f.label :"賃料" %></td></tr>
+    <tr><td><%= f.text_field :rent %>円</td></tr>
+    <tr><td><%= f.label :"住所" %></td></tr>
+    <tr><td><%= f.text_field :add %></td></tr>
+    <tr><td><%= f.label :"築年数" %></td></tr>
+    <tr><td><%= f.text_field :year %>年</td></tr>
+    <tr><td><%= f.label :"備考" %></td></tr>
+    <tr><td><%= f.text_area :remarks %></td></tr>
+  </table>
+  <div class="borderLine"></div>
+  <table>
+    <%= f.fields_for :near_stations do |a| %>
+      <tr><td><h3>最寄駅</h3></td></tr>
+      <tr><td><%= a.label :"路線名" %></td></tr>
+      <tr><td><%= a.text_field :line %></td></tr>
+      <tr><td><%= a.label :"駅名" %></td></tr>
+      <tr><td><%= a.text_field :station %></td></tr>
+      <tr><td><%= a.label :"徒歩分数" %></td></tr>
+      <tr><td><%= a.text_field :walk %></td></tr>
+    <% end %>
+  <tr><td><%= f.submit :"登録する" %></td></tr>
+  <% end %>
+</table>
