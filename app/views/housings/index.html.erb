@@ -14,9 +14,8 @@
     <td><%= h.build %></td>
     <td><%= h.rent.to_s(:delimited, delimiter: ',') %>円</td>
     <td><%= h.add %></td>
-    <td><%= h.year %></td>
+    <td><%= h.year %>年</td>
     <td><%= h.remarks %></td>
-
     <td><%= link_to '詳細', housing_path(h.id) %></td>
     <td><%= link_to '編集', edit_housing_path(h.id) %></td>
     <td><%= link_to '削除', housing_path(h.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
