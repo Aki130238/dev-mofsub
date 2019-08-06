@@ -7,13 +7,11 @@ class HousingsController < ApplicationController
 
   def new
     @housing = Housing.new
-    @housing.near_stations.new #１件最寄駅追加用
-    #2.times { @housing.near_stations.build }
+    2.times { @housing.near_stations.build }
   end
 
   def create
-    @housing = Housing.create(params_housing)
-    # 2.times { @housing.articles.build }(params[:housing])
+    @housing = Housing.new(params_housing)
     if params[:back]
       render 'new'
     else
@@ -29,7 +27,7 @@ class HousingsController < ApplicationController
   end
 
   def edit
-    @housing.near_stations.new #１件最寄駅追加用
+    @housing.near_stations.new
   end
 
   def update

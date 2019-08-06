@@ -12,7 +12,7 @@
 <% @housings.each do |h| %>
   <tr>
     <td><%= h.build %></td>
-    <td><%= h.rent %></td>
+    <td><%= h.rent.to_s(:delimited, delimiter: ',') %>円</td>
     <td><%= h.add %></td>
     <td><%= h.year %></td>
     <td><%= h.remarks %></td>
