@@ -13,9 +13,9 @@
   </table>
     <div class="borderLine"></div>
   <table>
-    <%= f.fields_for :near_stations do |a| %>
     <% count = 1 %>
-      <tr><td><h3>最寄駅</h3></td></tr>
+    <%= f.fields_for :near_stations do |a| %>
+      <tr><td><h3>最寄駅<%= count %></h3></td></tr>
       <tr><td><%= a.label :"路線名" %></td></tr>
       <tr><td><%= a.text_field :line %></td></tr>
       <tr><td><%= a.label :"駅名" %></td></tr>
