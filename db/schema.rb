@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20190806084454) do
   end
 
   create_table "near_stations", force: :cascade do |t|
-    t.string   "line",       null: false
-    t.string   "station",    null: false
-    t.integer  "walk",       null: false
-    t.integer  "housing_id", null: false
+    t.string   "line"
+    t.string   "station"
+    t.integer  "walk"
+    t.integer  "housing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["housing_id"], name: "index_near_stations_on_housing_id"
